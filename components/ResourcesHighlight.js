@@ -4,7 +4,7 @@ const ResourcesHighlight = ({ resources }) => {
       <section className='hero '>
         <div className='hero-body'>
           <div className='container'>
-            {resources.map((resource) => {
+            {resources.slice(0, 2).map((resource) => {
               return (
                 <section className='section' key={resource.id}>
                   <div className='columns'>

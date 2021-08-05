@@ -6,7 +6,7 @@ const ResourcesList = ({ resources }) => {
           <div className='container'>
             <section className='section'>
               <div className='columns is-multiline is-variable is-8'>
-                {resources.map((resource) => {
+                {resources.slice(2).map((resource) => {
                   return (
                     <div className='column is-5 is-offset-1 ' key={resource.id}>
                       <div className='content is-medium'>
