@@ -4,8 +4,6 @@ import NewsLetter from 'components/Newsletter';
 import ResourcesList from 'components/ResourcesList';
 import Footer from 'components/Footer';
 
-import data from './api/data.json';
-
 const Home = ({ resources }) => {
   return (
     <Layout>
@@ -35,9 +33,9 @@ differences between server side props  and static props
 */
 
 export async function getServerSideProps() {
-  const responseData = await fetch('http://localhost:3000/api/resources');
+  const responseData = await fetch('http://localhost:3001/api/resources');
   const data = await responseData.json();
-
+  console.log(data);
   return {
     props: {
       resources: data,
