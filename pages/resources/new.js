@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import axios from 'axios';
+import { useRouter } from 'next/router';
 import Layout from 'components/UI/Layout';
 
 const DEFAULT_DATA = {
@@ -12,25 +13,26 @@ const DEFAULT_DATA = {
 
 const ResourceCreate = () => {
   const [form, setForm] = useState(DEFAULT_DATA);
+  const router = useRouter();
 
   const clearForm = () => setForm({ ...DEFAULT_DATA });
 
   const onSubmitButton = (e) => {
     e.preventDefault(e);
 
-    // Without this, the form will submit the default data
-
+    //Old way
     // fetch('/api/resources', {
     //   body: JSON.stringify(form),
     //   headers: { ContentType: 'application/json' },
     //   method: 'POST',
     // });
 
-    // with axios
+    //With axios
     axios
       .post('/api/resources', form)
       .then((res) => {
         res.data;
+        router.push('/');
         clearForm();
       })
       .catch((err) => {
