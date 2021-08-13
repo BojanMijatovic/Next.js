@@ -9,6 +9,7 @@ export default async function (req, res) {
 
   if (req.method === 'POST') {
     const { title, description, link, timeToFinish, priority } = req.body;
+
     if (!title || !description || !link || !timeToFinish || !priority) {
       return res.status(422).send('Missing required fields');
     }

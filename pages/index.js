@@ -35,7 +35,6 @@ differences between server side props  and static props
 export async function getServerSideProps() {
   const responseData = await fetch('http://localhost:3001/api/resources');
   const data = await responseData.json();
-  console.log(data);
   return {
     props: {
       resources: data,
